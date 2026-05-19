@@ -1,9 +1,11 @@
 section.secao-background {
+  padding: 1rem 0;
   width: 100%;
-  height: 100dvh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #0d0d0d;
 }
 
 div.secao {
@@ -18,10 +20,12 @@ div.cabecalho-secao {
 }
 
 div.cabecalho-secao h1 {
+  font-size: clamp(1rem, 10vw, 2.2rem);
   text-align: center;
 }
 
 form.main-secao {
+  background-color: #fff;
   border: 1px solid #38454D;
   padding: 0.4rem 0 0 0;
   display: flex;
@@ -40,25 +44,37 @@ form.main-secao input {
 
 form.main-secao input::placeholder {
   color: #38454D;
-  font-size: clamp(0.9rem, 3vw, 1rem);
+  font-size: clamp(0.8rem, 4vw, 1rem);
 }
 
 form.main-secao button {
   font-size: clamp(0.9rem, 3vw, 1rem);
   height: 2.2rem;
   border: none;
-  background-color: #38454D;
   color: #fff;
+  background-color: #38454D;
+  transition: all 0.3s;
+}
+
+form.main-secao button:hover {
+ background-color: #48565E;
 }
 
 div.footer-secao {
-  padding: 0.2rem 0;
+  padding: 0.4rem 0;
 }
 
 div.footer-secao p {
+  color: #ffffff;
+  font-size: clamp(0.85rem, 4vw, 1rem);
   text-align: center;
 }
 
 div.footer-secao a {
-  color: #000;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+div.footer-secao a:hover {
+  text-decoration: underline;
 }
