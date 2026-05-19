@@ -1,9 +1,10 @@
 import { Router } from "express"
+import {
+  cadastroUsuario
+} from "./controllers/usuarioController.js"
 
 const router = Router()
 
-router.get("/teste", (request, response)=>{
-  response.status(200).json({ Mensagem: "Rota fucionando!" })
-})
+router.post("/cadastro", cadastroUsuario)
 
 export default router
