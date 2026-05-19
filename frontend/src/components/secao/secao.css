@@ -1,0 +1,64 @@
+section.secao-background {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.secao {
+  width: 98%;
+  max-width: 520px;
+}
+
+div.cabecalho-secao {
+  background-color: #38454D;
+  color: #fff;
+  padding: 1.4rem 0;
+}
+
+div.cabecalho-secao h1 {
+  text-align: center;
+}
+
+form.main-secao {
+  border: 1px solid #38454D;
+  padding: 0.4rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+form.main-secao input {
+  border: 1px solid #38454D;
+  outline: none;
+  border-left: none;
+  border-right: none;
+  height: 2.2rem;
+  padding: 0.4rem;
+}
+
+form.main-secao input::placeholder {
+  color: #38454D;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+}
+
+form.main-secao button {
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  height: 2.2rem;
+  border: none;
+  background-color: #38454D;
+  color: #fff;
+}
+
+div.footer-secao {
+  padding: 0.2rem 0;
+}
+
+div.footer-secao p {
+  text-align: center;
+}
+
+div.footer-secao a {
+  color: #000;
+}
