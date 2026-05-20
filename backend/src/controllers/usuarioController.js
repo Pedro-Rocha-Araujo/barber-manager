@@ -1,5 +1,7 @@
 import ModelUsuario from "../models/Usuario.js"
+import "dotenv"
 import bcrypt from "bcrypt"
+import jwt from "json-web-token"
 
 const salt = 10
 
@@ -31,5 +33,49 @@ export async function cadastroUsuario(request, response) {
   } catch(erro){
     console.log(erro)
     return response.status(500).json({Erro: "Erro ao cadastrar o usuário!"})
+  }
+}
+
+export async function loginUsuario(request, response) {
+  try {
+    const { email, senha } = request.body
+
+    if(!email || !senha) {
+      return response.status(400).json({ Erro: "Campos não preenchidos!" })
+    }
+
+    const query = await ModelUsuario.findOne( { email: email } )
+
+    if(!query) {
+      return response.status(401).json({Mensagem: "Dados incorretos!"})
+    }
+
+    const senhaCriptografada = query.senha
+
+    const checagem = await bcrypt.compare(senha, senhaCriptografada)
+
+    if(!checagem) {
+      return response.status(401).json({Mensagem: "Dados incorretos!"})
+    }
+
+    const token = jwt.sign({
+      id: query._id,
+      nome: query.nome,
+      email: query.email,
+      role: query.role
+    }, 
+    process.env.SENHA_JWT, 
+    {
+      expiresIn: "1h"
+    })
+
+    return response.status(200).json({ 
+      Mensagem: "Login feito com sucesso!",
+      token: token 
+    })
+
+  } catch(erro) {
+    console.log(erro)
+    return response.status(500).json({Erro: "Erro ao logar o usuário!"})
   }
 }
