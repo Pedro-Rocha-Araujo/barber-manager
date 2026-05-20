@@ -5,6 +5,16 @@ import jwt from "json-web-token"
 
 const salt = 10
 
+export async function listarUsuarios(request, response) {
+  try {
+    const query = await ModelUsuario.find()
+    return response.status(200).json(query)
+  } catch(erro) {
+    console.log(erro)
+    return response.status(500).json({ Erro: "Erro ao buscar os usuários!" })
+  }
+}
+
 export async function cadastroUsuario(request, response) {
   try {
     const { nome, email, telefone , senha } = request.body
