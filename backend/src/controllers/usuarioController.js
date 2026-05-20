@@ -1,7 +1,7 @@
 import ModelUsuario from "../models/Usuario.js"
 import "dotenv"
 import bcrypt from "bcrypt"
-import jwt from "json-web-token"
+import jwt from "jsonwebtoken"
 
 const salt = 10
 

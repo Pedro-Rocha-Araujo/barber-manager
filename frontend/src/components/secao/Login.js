@@ -1,8 +1,31 @@
-
-import { Link } from "react-router-dom"
+import { useRef } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
+import axios from "axios"
 import "./secao.css"
 
 function Login() {
+  const navigate = useNavigate()
+
+  const emailRef = useRef()
+  const senhaRef = useRef()
+
+  async function logarUsuario(e) {
+    e.preventDefault()
+    try {
+      const response = await axios.post("http://localhost:4000/login", {
+        email: emailRef.current.value,
+        senha: senhaRef.current.value
+      })
+      const token = response.data.token
+      localStorage.setItem("token", token)
+      navigate("/home")
+    } catch(erro) {
+      console.log(erro)
+      toast.error("Erro!")
+    }
+  }
+
   return (
     <section className="secao-background">
 
@@ -12,9 +35,13 @@ function Login() {
           <h1>Login</h1>
         </div>
 
-        <form className="main-secao">
-          <input type="email" required placeholder="Digite seu E-mail" />
-          <input type="password" required placeholder="Digite sua senha" />
+        <form onSubmit={logarUsuario} className="main-secao">
+          <input type="email" required placeholder="Digite seu E-mail" 
+            ref={emailRef}
+          />
+          <input type="password" required placeholder="Digite sua senha" 
+            ref={senhaRef}
+          />
           <button>Entrar</button>        
         </form>
 
