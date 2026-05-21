@@ -27,9 +27,9 @@ router.post("/cadastro", cadastroUsuario)
 router.post("/login", loginUsuario)
 // Rotas de Corte
 router.get("/cortes", checarToken, listarCortes)
-router.get("/corte/:id", checarToken, listarCorte)
-router.post("/novo-corte", checarToken, checarAdmin, cadastrarCorte)
-router.put("/editar-corte/:id", checarToken, checarAdmin, editarCorte)
-router.delete("/deletar-corte/:id", checarToken, checarAdmin, deletarCorte)
+router.get("/cortes/:id", checarToken, listarCorte)
+router.post("/cortes", checarToken, checarAdmin, cadastrarCorte)
+router.put("/cortes/:id", checarToken, checarAdmin, editarCorte)
+router.delete("/cortes/:id", checarToken, checarAdmin, deletarCorte)
 
 export default router
