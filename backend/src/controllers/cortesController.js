@@ -26,3 +26,28 @@ export async function listarCorte(request, response) {
     return response.status(500).json({ Erro: "Erro ao listar os cortes!" })
   }
 }
+
+export async function cadastrarCorte(request, response) {
+  try {
+    const { nome, descricao, preco } = request.body
+
+    if(!nome || !descricao || !preco) {
+      return response.status(400).json({ Erro: "Todos os campos são obrigatórios!" })
+    }
+
+    if(preco <= 0) {
+      return response.status(400).json({ Erro: "Preencha o preço corretamente!" })
+    }
+
+    await ModelCorte.create({
+      nome: nome,
+      descricao: descricao,
+      preco: Number(preco)
+    })
+
+    return response.status(201).json({ Mensagem: "Corte cadastrado com sucesso!" })
+
+  } catch(erro) {
+    return response.status(500).json({ Erro: "Erro ao cadastar o corte!" })
+  }
+}
