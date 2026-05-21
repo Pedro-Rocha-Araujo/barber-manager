@@ -36,7 +36,7 @@ export async function cadastrarCorte(request, response) {
     }
 
     if(preco <= 0) {
-      return response.status(400).json({ Erro: "Preencha o preço corretamente!" })
+      return response.status(400).json({ Erro: "Preço inválido!" })
     }
 
     await ModelCorte.create({
@@ -49,6 +49,38 @@ export async function cadastrarCorte(request, response) {
 
   } catch(erro) {
     return response.status(500).json({ Erro: "Erro ao cadastar o corte!" })
+  }
+}
+
+export async function editarCorte(request, response) {
+  try {
+    const { id } = request.params
+
+    const { nome, descricao, preco } = request.body
+
+    if(!nome || !descricao || !preco) {
+      return response.status(400).json({ Erro: "Todos os campos são obrigatórios!" })
+    }
+
+    if(preco <= 0) {
+      return response.status(400).json({ Erro: "Preço inválido!" })
+    }
+
+    const query = await ModelCorte.findByIdAndUpdate( id, {
+      nome: nome,
+      descricao: descricao,
+      preco: Number(preco)
+    })
+
+    if(!query) {
+      return response.status(404).json({ Erro: "Corte inválido!" })
+    }
+
+    return response.status(200).json({ Mensagem: "Corte atualizado com sucesso!" })
+
+  } catch(erro) {
+    console.log(erro)
+    return response.status(500).json({ Erro: "Erro ao editar o corte!" })
   }
 }
 
