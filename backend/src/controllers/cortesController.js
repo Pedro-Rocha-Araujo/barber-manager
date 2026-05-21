@@ -51,3 +51,21 @@ export async function cadastrarCorte(request, response) {
     return response.status(500).json({ Erro: "Erro ao cadastar o corte!" })
   }
 }
+
+export async function deletarCorte(request, response) {
+  try {
+    const { id } = request.params
+
+    const query = await ModelCorte.findByIdAndDelete(id)
+
+    if(!query) {
+      return response.status(404).json({ Erro: "Erro ao deletar o corte!" })
+    }
+
+    return response.status(200).json({ Mensagem: "Corte deletado com sucesso!" })
+
+  } catch(erro) {
+    console.log(erro)
+    return response.status(500).json({ Erro: "Erro ao deletar o corte!" })
+  }
+}
