@@ -67,7 +67,6 @@ section.listagem-cortes h2 {
 }
 
 div.cortes {
-  
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
@@ -80,6 +79,12 @@ div.corte {
   justify-content: space-between;
   padding: 1rem 1.4rem;
   border-radius: 2rem;
+  transition: all 0.2s;
+}
+
+div.corte:hover {
+  transform: scale(1.01);
+  cursor: pointer;
 }
 
 div.corte h3 {
