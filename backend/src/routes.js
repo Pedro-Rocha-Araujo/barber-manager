@@ -29,7 +29,7 @@ router.post("/login", loginUsuario)
 router.put("/editar-permissao/:id", editarPermissao)
 // Rotas de Corte
 router.get("/cortes", listarCortes)
-router.get("/cortes/:id", checarToken, listarCorte)
+router.get("/cortes/:id", listarCorte)
 router.post("/cortes", checarToken, checarAdmin, cadastrarCorte)
 router.put("/cortes/:id", checarToken, checarAdmin, editarCorte)
 router.delete("/cortes/:id", checarToken, checarAdmin, deletarCorte)
