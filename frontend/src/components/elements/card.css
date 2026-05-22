@@ -23,7 +23,12 @@ div.card {
 }
 
 div.card h1 {
+  font-size: clamp(1.4rem, 8vw, 2rem);
   color: #000;
+}
+
+div.card p {
+  font-size: clamp(0.9rem, 4vw, 1.1rem);
 }
 
 div.card i {

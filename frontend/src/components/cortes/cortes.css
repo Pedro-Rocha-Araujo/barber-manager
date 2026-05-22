@@ -61,7 +61,7 @@ section.listagem-cortes {
 
 section.listagem-cortes h2 {
   margin: 2rem 0 1rem 0;
-  font-size: clamp(1.8rem, 8vw, 2.8rem);
+  font-size: clamp(1.6rem, 8vw, 2.8rem);
   color: #fff;
   text-align: center;
 }
@@ -88,5 +88,5 @@ div.corte:hover {
 }
 
 div.corte h3 {
-  font-size: clamp(1.1rem, 6vw, 1.6rem);
+  font-size: clamp(1rem, 6vw, 1.6rem);
 }

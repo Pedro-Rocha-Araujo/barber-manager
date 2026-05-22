@@ -53,7 +53,7 @@ function CardCorte({ id, setCard }) {
       <div className="card">
         <div className="dois">
           <h1>Corte: { itemCard?.nome }</h1>
-          <i onClick={()=>deletarCorte(itemCard._id)} className="fa-solid fa-trash fa-xl"></i>
+          <i onClick={()=>deletarCorte(itemCard._id)} className="fa-solid fa-trash fa-lg"></i>
         </div>
           <p><strong>Preço:</strong> R${itemCard?.preco}</p>
           <p><strong>Descrição:</strong> { itemCard?.descricao }</p>
