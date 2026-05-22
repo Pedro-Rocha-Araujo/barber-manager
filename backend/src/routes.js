@@ -3,7 +3,8 @@ import { Router } from "express"
 import {
   listarUsuarios,
   cadastroUsuario,
-  loginUsuario
+  loginUsuario,
+  editarPermissao
 } from "./controllers/usuarioController.js"
 // Imports de Cortes
 import {
@@ -25,6 +26,7 @@ const router = Router()
 router.get("/usuarios", listarUsuarios)
 router.post("/cadastro", cadastroUsuario)
 router.post("/login", loginUsuario)
+router.put("/editar-permissao/:id", editarPermissao)
 // Rotas de Corte
 router.get("/cortes", listarCortes)
 router.get("/cortes/:id", checarToken, listarCorte)

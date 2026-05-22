@@ -90,3 +90,21 @@ export async function loginUsuario(request, response) {
   }
 }
 
+export async function editarPermissao(request, response) {
+  try {
+    const { id } = request.params
+
+    const query = await ModelUsuario.findByIdAndUpdate(id, {
+      role: "admin"
+    })
+
+    if(!query){
+      return response.status(404).json({ Erro: "Usuário não encontrado!" })
+    }
+
+    return response.status(200).json({ Mensagem: "Permissão alterada!" })
+  } catch(erro) {
+    console.log(erro)
+    return response.status(500).json({ Erro: "Erro ao editar o usuário!" })
+  }
+}
