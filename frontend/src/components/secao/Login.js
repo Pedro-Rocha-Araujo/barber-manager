@@ -20,6 +20,7 @@ function Login() {
       const token = response.data.token
       localStorage.setItem("token", token)
       navigate("/novo-corte")
+      navigate(0)
     } catch(erro) {
       console.log(erro)
       toast.error("Erro!")
