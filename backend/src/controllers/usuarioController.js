@@ -89,3 +89,4 @@ export async function loginUsuario(request, response) {
     return response.status(500).json({Erro: "Erro ao logar o usuário!"})
   }
 }
+

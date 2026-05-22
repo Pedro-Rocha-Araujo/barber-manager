@@ -26,7 +26,7 @@ router.get("/usuarios", listarUsuarios)
 router.post("/cadastro", cadastroUsuario)
 router.post("/login", loginUsuario)
 // Rotas de Corte
-router.get("/cortes", checarToken, listarCortes)
+router.get("/cortes", listarCortes)
 router.get("/cortes/:id", checarToken, listarCorte)
 router.post("/cortes", checarToken, checarAdmin, cadastrarCorte)
 router.put("/cortes/:id", checarToken, checarAdmin, editarCorte)
