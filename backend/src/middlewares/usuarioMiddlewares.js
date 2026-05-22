@@ -1,4 +1,4 @@
-import jwt from "json-web-token"
+import jwt from "jsonwebtoken"
 import "dotenv/config"
 
 export async function checarToken(request, response, next) {
