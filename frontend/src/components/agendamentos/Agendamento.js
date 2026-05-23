@@ -2,8 +2,9 @@ import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import "./agendamento.css"
 
+const arrayDias = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+
 function Agendamento() {
-  const arrayDias = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
   const numeroDia = new Date().getDay()
 
   const navigate = useNavigate()
