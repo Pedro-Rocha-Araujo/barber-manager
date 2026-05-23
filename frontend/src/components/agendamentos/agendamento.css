@@ -1,0 +1,44 @@
+section.agendamento h2 {
+  margin: 2rem 0 1rem 0;
+  font-size: clamp(1.8rem, 8vw, 2.8rem);
+  color: #fff;
+  text-align: center;
+}
+
+section.agendamento h3 {
+  margin: 2rem 0 1rem 0;
+  font-size: clamp(1.4rem, 6vw, 2.4rem);
+  color: #fff;
+  text-align: center;
+}
+
+section.agendamento form {
+  width: 98%;
+  max-width: 1080px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+section.agendamento button {
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  width: 100%;
+  max-width: 900px;
+  height: 3rem;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+section.agendamento button:hover:not(.cheio) {
+  transform: scale(1.02);
+}
+
+section.agendamento button.cheio {
+  background-color: #ffffff6e;
+  color: #fff;
+  cursor: auto;
+}

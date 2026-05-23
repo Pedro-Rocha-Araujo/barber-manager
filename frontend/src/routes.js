@@ -5,6 +5,7 @@ import Cadastro from "./components/secao/Cadastro"
 import NovoCorte from "./components/cortes/NovoCorte"
 import EditarCorte from "./components/cortes/EditarCorte"
 import ListagemCortes from "./components/cortes/ListagemCortes"
+import Agendamento from "./components/agendamentos/Agendamento"
 
 function RouterApp() {
   return (
@@ -14,6 +15,7 @@ function RouterApp() {
       <Route path="/novo-corte" element={ <RotaPrivada> <NovoCorte /> </RotaPrivada> } />
       <Route path="/editar-corte/:id" element={<RotaPrivada><EditarCorte /></RotaPrivada>} />
       <Route path="/listagem-cortes" element={<RotaPrivada><ListagemCortes /></RotaPrivada>} />
+      <Route path="/agendamento" element={ <RotaPrivada> <Agendamento /> </RotaPrivada> } />
     </Routes>
   )
 }
