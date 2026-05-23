@@ -30,9 +30,8 @@ function Agendamento() {
   }
   return (
     <section className="agendamento">
-      <h2><i className="fa-solid fa-alarm-clock"></i> Agendar Corte</h2>
+      <h2><i className="fa-solid fa-calendar-day"></i> Escolha o Dia</h2>
       <form>
-        <h3>Escolha o dia</h3>
 
         {dias.map((dia, index)=>{
           return(

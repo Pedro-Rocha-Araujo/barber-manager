@@ -6,6 +6,7 @@ import NovoCorte from "./components/cortes/NovoCorte"
 import EditarCorte from "./components/cortes/EditarCorte"
 import ListagemCortes from "./components/cortes/ListagemCortes"
 import Agendamento from "./components/agendamentos/Agendamento"
+import AgendarHora from "./components/agendamentos/AgendarHora"
 
 function RouterApp() {
   return (
@@ -16,6 +17,7 @@ function RouterApp() {
       <Route path="/editar-corte/:id" element={<RotaPrivada><EditarCorte /></RotaPrivada>} />
       <Route path="/listagem-cortes" element={<RotaPrivada><ListagemCortes /></RotaPrivada>} />
       <Route path="/agendamento" element={ <RotaPrivada> <Agendamento /> </RotaPrivada> } />
+      <Route path="/agendamento/:dia" element={ <RotaPrivada> <AgendarHora /> </RotaPrivada> } />
     </Routes>
   )
 }
