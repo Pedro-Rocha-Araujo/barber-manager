@@ -2,7 +2,7 @@ import ModelAgendamento from "../models/Agendamento.js"
 
 export async function listarAgendamentos(request, response) {
   try {
-    const query = await ModelAgendamento.find()
+    const query = await ModelAgendamento.find().populate("usuario").populate("corte")
     return response.status(200).json(query)
   } catch(erro) {
     console.log(erro)

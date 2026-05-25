@@ -40,7 +40,7 @@
           }
         })
         toast.success("Corte agendado!")
-        
+        setHoraBack(null)
       } catch(erro) {
         console.log(erro)
         toast.error("Erro!")

@@ -21,7 +21,7 @@ function CardHorario({
         <h2 className="preto">Escolha o corte:</h2>
         <form onSubmit={agendarCorte}>
           <select onChange={(e)=>setCorteSelecionado(e.target.value)}>
-            <option value="" disabled selected>Escolher...</option>
+            <option disabled selected>Escolher...</option>
             {cortes.map((corte)=>{
               return <option key={corte._id} value={corte._id}>{corte.nome} - R${corte.preco}</option>
             })}
