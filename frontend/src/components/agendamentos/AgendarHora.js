@@ -1,9 +1,11 @@
   import { useState, useEffect } from "react"
-  import { useParams, useNavigate } from "react-router-dom"
+  import { useParams } from "react-router-dom"
+  import { toast } from "react-toastify"
+  import axios from "axios"
   import CardHorario from "../elements/CardHorario"
 
   function AgendarHora() {
-    const navigate = useNavigate()
+    const token = localStorage.getItem("token")
     // Horários de manhã e tarde em forma de array 
     const manha = [8, 9, 10, 11, 12]
     const tarde = [14, 15, 16, 17, 18]
@@ -12,6 +14,7 @@
     // Dia que vai para o backend
     const [diaBack, setDiaBack] = useState(null)
     const [horaBack, setHoraBack] = useState(null)
+    const [corteSelecionado, setCorteSelecionado] = useState(null)
     // Array com os dias para pegar com o número
     const arrayDias = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
     // Data de hoje
@@ -21,6 +24,27 @@
 
     function fecharCard() {
       setHoraBack(null)
+    }
+
+    async function agendarCorte(e) {
+      e.preventDefault()
+      try {
+        await axios.post("http://localhost:4000/agendamentos",
+        {
+          data: diaBack,
+          hora: Number(horaBack),
+          corte_id: corteSelecionado,
+        }, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        toast.success("Corte agendado!")
+        
+      } catch(erro) {
+        console.log(erro)
+        toast.error("Erro!")
+      }
     }
 
 
@@ -46,6 +70,8 @@
             diaBack={diaBack} 
             horaBack={horaBack} 
             fecharCard={fecharCard}
+            setCorteSelecionado={setCorteSelecionado}
+            agendarCorte={agendarCorte}
           />
         )}
         <h2><i className="fa-solid fa-clock"></i> Escolha o Horário!</h2>

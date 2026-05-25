@@ -45,7 +45,7 @@ div.card button {
   font-size: clamp(0.9rem, 3vw, 1rem);
   cursor: pointer;
   color: #fff;
-  padding: 0.4rem 0;
+  padding: 0.5rem 0;
   border: none;
   border-radius: 1rem;
 }
@@ -56,4 +56,23 @@ button.blue {
 
 button.red {
   background-color: rgb(228, 44, 20);
+}
+
+div.card h2.preto, div.card h3.preto {
+  font-size: clamp(1.4rem, 8vw, 2rem);
+  text-align: left;
+  color: #000;
+  margin: 0;
+}
+
+
+
+div.card div.form {
+  width: 100%;
+}
+
+div.card select {
+  font-size: clamp(0.9rem, 4vw, 1.1rem);
+  width: 100%;
+  padding: 0.4rem 0;
 }
