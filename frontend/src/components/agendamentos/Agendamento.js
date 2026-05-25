@@ -38,7 +38,7 @@ function Agendamento() {
           return(
             <button 
               key={index} 
-              onClick={()=>agendarHora(dia)} 
+              onClick={()=>agendarHora(dia)}
               type="button"
               className={dia === "Domingo" ? "cheio" : "vago"}
               disabled={dia === "Domingo"}
