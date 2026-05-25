@@ -43,6 +43,11 @@ section.agendamento button.cheio {
   cursor: auto;
 }
 
+section.agendamento button:active {
+  background-color: #ffffff6e;
+  color: #fff;
+}
+
 section.agendamento hr {
   width: 100%;
 }
