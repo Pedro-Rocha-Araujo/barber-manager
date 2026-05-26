@@ -17,7 +17,8 @@ import {
 // Imports de Agendamento
 import {
   listarAgendamentos,
-  agendarCorte
+  agendarCorte,
+  listarHorarios
 } from "./controllers/agendamentoController.js"
 // imports dos Middleares
 import {
@@ -40,6 +41,8 @@ router.put("/cortes/:id", checarToken, checarAdmin, editarCorte)
 router.delete("/cortes/:id", checarToken, checarAdmin, deletarCorte)
 // Rotas de Agendamento
 router.get("/agendamentos", listarAgendamentos)
+router.get("/agendamentos/:data", listarHorarios)
 router.post("/agendamentos", checarToken, agendarCorte)
+
 
 export default router
