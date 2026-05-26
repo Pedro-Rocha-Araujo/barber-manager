@@ -64,6 +64,7 @@
 
     return (
       <section className="agendamento">
+      
         {horaBack && (
           <CardHorario 
             dia={dia} 
@@ -74,6 +75,7 @@
             agendarCorte={agendarCorte}
           />
         )}
+
         <h2><i className="fa-solid fa-clock"></i> Escolha o Horário!</h2>
         <form>
           <h3>Manhã</h3>

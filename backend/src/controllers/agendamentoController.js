@@ -10,6 +10,20 @@ export async function listarAgendamentos(request, response) {
   }
 }
 
+export async function listarHorarios(request, response) {
+  try {
+    const { data } = request.params
+    
+    const query = await ModelAgendamento({ data: data })
+
+    return response.status(200);json(query)
+
+  } catch(erro) {
+    console.log(erro)
+    return response.status(500).json({ Erro: "Erro ao listar os horários" })
+  }
+}
+
 export async function agendarCorte(request, response) {
   try {
     const { data, hora, corte_id } = request.body
