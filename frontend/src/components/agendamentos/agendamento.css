@@ -33,19 +33,14 @@ section.agendamento button {
   transition: all 0.3s;
 }
 
-section.agendamento button:hover:not(.cheio) {
+section.agendamento button:hover:not(:disabled) {
   transform: scale(1.02);
 }
 
-section.agendamento button.cheio {
+section.agendamento button:disabled {
   background-color: #ffffff6e;
   color: #fff;
   cursor: auto;
-}
-
-section.agendamento button:active {
-  background-color: #ffffff6e;
-  color: #fff;
 }
 
 section.agendamento hr {

@@ -114,11 +114,13 @@
         <form>
           <h3>Manhã</h3>
           {manha.map((hora)=>{
+            const ocupado = horariosOcupados.includes(hora)
             return (
               <button 
                 key={hora} 
                 value={hora} 
                 type="button"
+                disabled={ocupado}
                 onClick={(e)=>setHoraBack(e.target.value)}
               >{hora}:00 - Manhã</button>
             )
