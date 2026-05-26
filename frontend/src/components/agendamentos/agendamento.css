@@ -19,7 +19,6 @@ section.agendamento form {
   flex-direction: column;
   align-items: center;
   gap: 0.6rem;
-  margin-bottom: 2rem;
 }
 
 section.agendamento hr {

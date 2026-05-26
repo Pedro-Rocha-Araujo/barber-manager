@@ -95,7 +95,6 @@
       }
     }, [diaBack, token])
 
-    console.log(horariosOcupados)
 
     return (
       <>

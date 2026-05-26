@@ -43,8 +43,8 @@ div.dois {
 
 div.card button {
   font-size: clamp(0.9rem, 3vw, 1rem);
-  cursor: pointer;
   color: #fff;
+  cursor: pointer;
   padding: 0.5rem 0;
   border: none;
   border-radius: 1rem;

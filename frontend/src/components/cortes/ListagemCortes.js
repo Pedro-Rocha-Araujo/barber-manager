@@ -40,7 +40,7 @@ function ListagemCortes() {
           <CardCorte id={card} setCard={setCard} />
         ) }
 
-        <h2>Cortes Disponíveis</h2>
+        <h2><i className="fa-solid fa-list"></i> Cortes Disponíveis</h2>
         <div className="cortes">
 
           {cortes.map((corte, index)=>{
