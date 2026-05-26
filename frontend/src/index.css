@@ -12,9 +12,28 @@ body {
 header {
   background-color: #fff;
   color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 1.6rem;
 }
 
 header h1 {
   font-size: clamp(1.5rem, 8vw, 2.6rem);
+}
+
+header ul {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+header a {
+  color: #000;
+  text-decoration: none;
+}
+
+header a:hover {
+  text-decoration: underline;
 }

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { toast } from "react-toastify"
 import axios from "axios"
 import CardCorte from "../elements/CardCorte"
+import Header from "../elements/Header"
 
 function ListagemCortes() {
 
@@ -31,28 +32,31 @@ function ListagemCortes() {
   }
 
   return (
-    <section className="listagem-cortes">
+    <>
+      <Header />
+      <section className="listagem-cortes">
 
-      { card && (
-        <CardCorte id={card} setCard={setCard} />
-      ) }
+        { card && (
+          <CardCorte id={card} setCard={setCard} />
+        ) }
 
-      <h2>Cortes Disponíveis</h2>
-      <div className="cortes">
+        <h2>Cortes Disponíveis</h2>
+        <div className="cortes">
 
-        {cortes.map((corte, index)=>{
-          return (
-            <div onClick={()=>acionarCard(corte._id)} key={corte._id} className="corte">
+          {cortes.map((corte, index)=>{
+            return (
+              <div onClick={()=>acionarCard(corte._id)} key={corte._id} className="corte">
 
-                <h3>{`${corte.nome} - R$${corte.preco}`}</h3>
-                <i className="fa-solid fa-eye fa-xl"></i>
+                  <h3>{`${corte.nome} - R$${corte.preco}`}</h3>
+                  <i className="fa-solid fa-eye fa-xl"></i>
 
-            </div>
-          )
-        })}
+              </div>
+            )
+          })}
 
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   )
 }
 

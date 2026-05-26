@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import Header from "../elements/Header"
 import "./agendamento.css"
 
 const arrayDias = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
@@ -30,24 +31,27 @@ function Agendamento() {
     navigate(`/agendamento/${endpoint}`)
   }
   return (
-    <section className="agendamento">
-      <h2><i className="fa-solid fa-calendar-day"></i> Escolha o Dia</h2>
-      <form>
+    <>
+      <Header />
+      <section className="agendamento">
+        <h2><i className="fa-solid fa-calendar-day"></i> Escolha o Dia</h2>
+        <form>
 
-        {dias.map((dia, index)=>{
-          return(
-            <button 
-              key={index} 
-              onClick={()=>agendarHora(dia)}
-              type="button"
-              className={dia === "Domingo" ? "cheio" : "vago"}
-              disabled={dia === "Domingo"}
-            >{dia}</button>
-          )
-        })}
+          {dias.map((dia, index)=>{
+            return(
+              <button 
+                key={index} 
+                onClick={()=>agendarHora(dia)}
+                type="button"
+                className={dia === "Domingo" ? "cheio" : "vago"}
+                disabled={dia === "Domingo"}
+              >{dia}</button>
+            )
+          })}
 
-      </form>
-    </section>
+        </form>
+      </section>
+    </>
   )
 }
 

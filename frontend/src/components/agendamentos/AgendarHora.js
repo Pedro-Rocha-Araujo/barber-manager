@@ -3,6 +3,7 @@
   import { toast } from "react-toastify"
   import axios from "axios"
   import CardHorario from "../elements/CardHorario"
+  import Header from "../elements/Header"
 
   function AgendarHora() {
     const token = localStorage.getItem("token")
@@ -97,50 +98,55 @@
     console.log(horariosOcupados)
 
     return (
-      <section className="agendamento">
+      <>
+        <Header />
+        <section className="agendamento">
 
-        {horaBack && (
-          <CardHorario 
-            dia={dia} 
-            diaBack={diaBack} 
-            horaBack={horaBack} 
-            fecharCard={fecharCard}
-            setCorteSelecionado={setCorteSelecionado}
-            agendarCorte={agendarCorte}
-          />
-        )}
+          {horaBack && (
+            <CardHorario 
+              dia={dia} 
+              diaBack={diaBack} 
+              horaBack={horaBack} 
+              fecharCard={fecharCard}
+              setCorteSelecionado={setCorteSelecionado}
+              agendarCorte={agendarCorte}
+            />
+          )}
 
-        <h2><i className="fa-solid fa-clock"></i> Escolha o Horário!</h2>
-        <form>
-          <h3>Manhã</h3>
-          {manha.map((hora)=>{
-            const ocupado = horariosOcupados.includes(hora)
-            return (
-              <button 
-                key={hora} 
-                value={hora} 
-                type="button"
-                disabled={ocupado}
-                onClick={(e)=>setHoraBack(e.target.value)}
-              >{hora}:00 - Manhã</button>
-            )
-          })}
-          <hr />
-          <h3>Tarde</h3>
-          {tarde.map((hora)=>{
-            return (
-              <button 
-                key={hora} 
-                value={hora} 
-                type="button"
-                onClick={(e)=>{
-                  setHoraBack(e.target.value)
-                }}
-              >{hora}:00 - Tarde</button>
-            ) 
-          })}
-        </form>
-      </section>
+          <h2><i className="fa-solid fa-clock"></i> Escolha o Horário!</h2>
+          <form>
+            <h3>Manhã</h3>
+            {manha.map((hora)=>{
+              const ocupado = horariosOcupados.includes(hora)
+              return (
+                <button 
+                  key={hora} 
+                  value={hora} 
+                  type="button"
+                  disabled={ocupado}
+                  onClick={(e)=>setHoraBack(e.target.value)}
+                >{hora}:00 - Manhã</button>
+              )
+            })}
+            <hr />
+            <h3>Tarde</h3>
+            {tarde.map((hora)=>{
+              const ocupado = horariosOcupados.includes(hora)
+              return (
+                <button 
+                  key={hora} 
+                  value={hora} 
+                  type="button"
+                  disabled={ocupado}
+                  onClick={(e)=>{
+                    setHoraBack(e.target.value)
+                  }}
+                >{hora}:00 - Tarde</button>
+              ) 
+            })}
+          </form>
+        </section>
+      </>
     )
   }
 

@@ -2,6 +2,7 @@ import { useRef } from "react"
 import { toast } from "react-toastify"
 import axios from "axios"
 import "./cortes.css"
+import Header from "../elements/Header"
 
 function NovoCorte() {
   const nomeRef = useRef()
@@ -42,21 +43,24 @@ function NovoCorte() {
   }
 
   return (
-    <section className="novo-corte">
-      <h2><i className="fa-solid fa-scissors"></i> Adicionar Corte</h2>
-      <form onSubmit={cadastrarCorte} className="novo-corte">
-        <input type="text" required name="nome" placeholder="Digite o nome do corte" 
-          ref={nomeRef}
-        />
-        <textarea required name="descricao" placeholder="Faça uma descrição do corte" 
-          ref={descricaoRef}
-        />
-        <input type="number" required name="preco" placeholder="Digite o valor do corte" 
-          ref={precoRef}
-        />
-        <button>Cadastrar</button>
-      </form>
-    </section>
+    <>
+      <Header />
+      <section className="novo-corte">
+        <h2><i className="fa-solid fa-scissors"></i> Adicionar Corte</h2>
+        <form onSubmit={cadastrarCorte} className="novo-corte">
+          <input type="text" required name="nome" placeholder="Digite o nome do corte" 
+            ref={nomeRef}
+          />
+          <textarea required name="descricao" placeholder="Faça uma descrição do corte" 
+            ref={descricaoRef}
+          />
+          <input type="number" required name="preco" placeholder="Digite o valor do corte" 
+            ref={precoRef}
+          />
+          <button>Cadastrar</button>
+        </form>
+      </section>
+    </>
   )
 }
 
