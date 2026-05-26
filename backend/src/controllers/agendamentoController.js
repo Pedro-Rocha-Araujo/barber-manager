@@ -14,9 +14,9 @@ export async function listarHorarios(request, response) {
   try {
     const { data } = request.params
     
-    const query = await ModelAgendamento({ data: data })
+    const query = await ModelAgendamento.find({ data: data })
 
-    return response.status(200);json(query)
+    return response.status(200).json(query)
 
   } catch(erro) {
     console.log(erro)

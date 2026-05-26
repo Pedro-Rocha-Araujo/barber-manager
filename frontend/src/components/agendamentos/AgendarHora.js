@@ -9,16 +9,24 @@
     // Horários de manhã e tarde em forma de array 
     const manha = [8, 9, 10, 11, 12]
     const tarde = [14, 15, 16, 17, 18]
+
     // Dia pego no useParams
     const { dia } = useParams()
-    // Dia que vai para o backend
+
+    // Informações que vão para o backend
     const [diaBack, setDiaBack] = useState(null)
     const [horaBack, setHoraBack] = useState(null)
     const [corteSelecionado, setCorteSelecionado] = useState(null)
+
+    // Estado com os horários ocupados
+    const [horariosOcupados, setHorariosOcupados] = useState([])
+
     // Array com os dias para pegar com o número
     const arrayDias = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+
     // Data de hoje
     const hoje = new Date().getDay()
+
     // Dia escolhido pelo usuário em forma de número
     const diaEscolhido = arrayDias.indexOf(dia)
 
@@ -62,9 +70,35 @@
       setarData()
     }, [diaEscolhido, hoje])
 
+    useEffect(()=>{
+      async function getHorariosOcupados() {
+        try {
+          const response = await axios.get(
+            "http://localhost:4000/agendamentos/"+diaBack,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`
+              }
+            }
+          )
+          const horarios = response.data.map((i)=>{
+            return i.hora
+          })
+          setHorariosOcupados(horarios)
+        } catch(erro) {
+          console.log(erro)
+        }        
+      }
+      if(diaBack) {
+        getHorariosOcupados()
+      }
+    }, [diaBack, token])
+
+    console.log(horariosOcupados)
+
     return (
       <section className="agendamento">
-      
+
         {horaBack && (
           <CardHorario 
             dia={dia} 
