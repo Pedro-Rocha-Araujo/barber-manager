@@ -22,6 +22,7 @@ function PerfilAdmin() {
               <h3><i className="fa-solid fa-user"></i> Nome: Lucas Andrade da silva</h3>
               <p><strong>Horário:</strong> 9:00</p>
               <p><strong>Corte:</strong> Social</p>
+              <button>Excluir</button>
             </div>
 
           </div>
