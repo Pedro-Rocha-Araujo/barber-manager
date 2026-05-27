@@ -1,15 +1,33 @@
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
+import { jwtDecode } from "jwt-decode"
 import Header from "../elements/Header"
 import "./perfil.css"
 
 function PerfilAdmin() {
+  const [cortes, setCortes] = useState([])
 
   const navigate = useNavigate()
+  const tokenLs = localStorage.getItem("token")
+  const token = jwtDecode(tokenLs)
 
   function sairConta() {
     localStorage.removeItem("token")
     navigate("/")
   }
+
+  useEffect(()=>{
+    async function getCortes() {
+      try {
+        const response = await axios.get("http://localhost:4000/cortes-do-dia")
+        setCortes(response.data)
+      } catch(erro) {
+        console.log(erro)
+      }
+    }
+    getCortes()
+  }, [])
 
   return (
     <>
@@ -17,9 +35,9 @@ function PerfilAdmin() {
       <section className="perfil">
 
         <div className="perfil">
-          <h2><i className="fa-solid fa-user"></i> Perfil</h2>
+          <h2><i className="fa-solid fa-user"></i> {token.nome}</h2>
           <label>Email: </label>
-          <input disabled value="teste@teste.com" />
+          <input disabled value={token.email} />
         </div>
 
         <div className="agendamentos-hoje">
@@ -27,12 +45,18 @@ function PerfilAdmin() {
 
           <div className="agendamentos">
 
-            <div className="agendamento">
-              <h3><i className="fa-solid fa-user"></i> Nome: Lucas Andrade da silva</h3>
-              <p><strong>Horário:</strong> 9:00</p>
-              <p><strong>Corte:</strong> Social</p>
-              <button>Excluir</button>
-            </div>
+            {cortes.map((agendamento)=>{
+              return (
+                <div key={agendamento._id} className="agendamento">
+                  <h3>
+                    <i className="fa-solid fa-user"></i> {agendamento.usuario.nome}
+                  </h3>
+                  <p><strong>Horário:</strong> {agendamento.hora}:00</p>
+                  <p><strong>Corte:</strong> {agendamento.corte.nome}</p>
+                  <button>Excluir</button>
+                </div>
+              )
+            })}
 
           </div>
 
