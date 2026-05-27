@@ -1,0 +1,51 @@
+section.perfil {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+section.perfil h2 {
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  margin-bottom: 0.2rem;
+}
+
+div.perfil {
+  background-color: #fff;
+  width: 98%;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+div.agendamentos-hoje {
+  background-color: #fff;
+  width: 98%;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+div.agendamentos {
+  display: flex;
+  flex-wrap: nowrap;
+  
+}
+
+div.agendamento {
+  width: 100%;
+  max-width: 380px;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.5rem;
+  border: 1px solid #000;
+}
+
+
+section.perfil button {
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  background-color: rgba(255, 66, 66, 0.667);
+  color: #fff;
+  width: 98%;
+  border: none;
+  padding: 0.8rem 0;
+  border-radius: 2rem;
+}

@@ -19,7 +19,7 @@ function Login() {
       })
       const token = response.data.token
       localStorage.setItem("token", token)
-      navigate("/novo-corte")
+      navigate("/agendamento")
       navigate(0)
     } catch(erro) {
       console.log(erro)

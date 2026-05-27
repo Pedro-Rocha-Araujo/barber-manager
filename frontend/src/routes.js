@@ -7,6 +7,7 @@ import EditarCorte from "./components/cortes/EditarCorte"
 import ListagemCortes from "./components/cortes/ListagemCortes"
 import Agendamento from "./components/agendamentos/Agendamento"
 import AgendarHora from "./components/agendamentos/AgendarHora"
+import PerfilAdmin from "./components/perfil/PerfilAdmin"
 
 function RouterApp() {
   return (
@@ -18,6 +19,7 @@ function RouterApp() {
       <Route path="/listagem-cortes" element={<RotaPrivada><ListagemCortes /></RotaPrivada>} />
       <Route path="/agendamento" element={ <RotaPrivada> <Agendamento /> </RotaPrivada> } />
       <Route path="/agendamento/:dia" element={ <RotaPrivada> <AgendarHora /> </RotaPrivada> } />
+      <Route path="/perfil" element={ <RotaPrivada> <PerfilAdmin /> </RotaPrivada> } />
     </Routes>
   )
 }
