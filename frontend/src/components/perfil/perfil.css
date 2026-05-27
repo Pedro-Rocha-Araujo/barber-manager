@@ -55,6 +55,14 @@ section.perfil button:hover {
    background-color: rgb(224, 73, 73);
 }
 
+button#blue {
+  background-color: #2b4aff;
+}
+
+button#blue:hover {
+  background-color: #3f5cff;
+}
+
 div.agendamento button {
   width: 100%;
   font-size: clamp(0.85rem, 3vw, 1rem);

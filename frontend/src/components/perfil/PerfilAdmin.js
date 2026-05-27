@@ -1,7 +1,16 @@
+import { useNavigate } from "react-router-dom"
 import Header from "../elements/Header"
 import "./perfil.css"
 
 function PerfilAdmin() {
+
+  const navigate = useNavigate()
+
+  function sairConta() {
+    localStorage.removeItem("token")
+    navigate("/")
+  }
+
   return (
     <>
       <Header />
@@ -29,7 +38,11 @@ function PerfilAdmin() {
 
         </div>
 
-        <button>Sair</button>
+        <button 
+          id="blue" type="button" onClick={()=>navigate("/novo-corte")}
+        >Adicionar Corte</button>
+
+        <button onClick={sairConta}>Sair</button>
 
       </section>
     </>

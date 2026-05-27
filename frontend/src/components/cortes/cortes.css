@@ -77,7 +77,7 @@ div.corte {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.4rem;
+  padding: 0.8rem 1.2rem;
   border-radius: 2rem;
   transition: all 0.2s;
 }
