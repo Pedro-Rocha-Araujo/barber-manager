@@ -46,23 +46,48 @@ function PerfilAdmin() {
 
         <div className="agendamentos-hoje">
           <h2><i className="fa-solid fa-calendar"></i> Cortes de Hoje</h2>
+          {cortes.length === 0 ? (
+            <p>Nenhum corte agendado para hoje até agora</p>
+          ): (
+            <>
+              <h3>Manhã</h3>
+              <div className="agendamentos">
+                {cortes.map((agendamento)=>{
+                  if(agendamento.hora <= 12) {
+                    return (
+                      <div key={agendamento._id} className="agendamento">
+                        <h3>
+                          <i className="fa-solid fa-user"></i> {agendamento.usuario.nome}
+                        </h3>
+                        <p><strong>Horário:</strong> {agendamento.hora}:00</p>
+                        <p><strong>Corte:</strong> {agendamento.corte.nome}</p>
+                        <button>Excluir</button>
+                      </div>
+                    )
+                  }
+                })}
 
-          <div className="agendamentos">
-
-            {cortes.map((agendamento)=>{
-              return (
-                <div key={agendamento._id} className="agendamento">
-                  <h3>
-                    <i className="fa-solid fa-user"></i> {agendamento.usuario.nome}
-                  </h3>
-                  <p><strong>Horário:</strong> {agendamento.hora}:00</p>
-                  <p><strong>Corte:</strong> {agendamento.corte.nome}</p>
-                  <button>Excluir</button>
-                </div>
-              )
-            })}
-
-          </div>
+              </div>   
+              <hr/>
+              <h3>Tarde</h3>
+              <div className="agendamentos">
+                {cortes.map((agendamento)=>{
+                  if(agendamento.hora >= 13) {
+                    return (
+                      <div key={agendamento._id} className="agendamento">
+                        <h3>
+                          <i className="fa-solid fa-user"></i> {agendamento.usuario.nome}
+                        </h3>
+                        <p><strong>Horário:</strong> {agendamento.hora}:00</p>
+                        <p><strong>Corte:</strong> {agendamento.corte.nome}</p>
+                        <button>Excluir</button>
+                      </div>
+                    )
+                  }
+                })}
+              </div>
+            </>
+          )}
 
         </div>
 
