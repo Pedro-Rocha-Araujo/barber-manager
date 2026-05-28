@@ -10,3 +10,14 @@ export async function cortesDoDia(request, response) {
     return response.status(500).json({ Erro: "Erro ao buscar os cortes do dia!" })
   }
 }
+
+export async function meusCortes(request, response) {
+  try {
+    const id = request.usuario
+    const query = await ModelAgendamento.find({ usuario: id }).populate("corte").sort({ data: -1 })
+    return response.status(200).json(query)
+  } catch(erro) {
+    console.log(erro)
+    return response.status(500).json({ Erro: "Erro ao buscar os cortes do dia!" })
+  }
+}
