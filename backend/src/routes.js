@@ -49,7 +49,7 @@ router.get("/agendamentos", listarAgendamentos)
 router.get("/agendamentos/:data", listarHorarios)
 router.post("/agendamentos", checarToken, agendarCorte)
 // Rotas de Perfil / Dashboard
-router.get("/cortes-do-dia", checarToken, cortesDoDia)
+router.get("/cortes-do-dia", checarToken, checarAdmin, cortesDoDia)
 router.get("/meus-cortes", checarToken, meusCortes)
 
 export default router

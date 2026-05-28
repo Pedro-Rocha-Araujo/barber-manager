@@ -13,7 +13,7 @@ import { jwtDecode } from "jwt-decode"
 
 function RouterApp() {
   const tokenLs = localStorage.getItem("token")
-  const token = jwtDecode(tokenLs)
+  const token = tokenLs ? jwtDecode(tokenLs): (null)
 
   return (
     <Routes>
@@ -26,7 +26,7 @@ function RouterApp() {
       <Route path="/agendamento/:dia" element={ <RotaPrivada> <AgendarHora /> </RotaPrivada> } />
       <Route path="/perfil" element={ 
         <RotaPrivada> 
-          {token.role === "admin" ? (
+          {token?.role === "admin" ? (
             <PerfilAdmin /> 
           ) : (
             <PerfilUser />

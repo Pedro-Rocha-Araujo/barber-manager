@@ -3,7 +3,11 @@ import ModelAgendamento from "../models/Agendamento.js"
 export async function cortesDoDia(request, response) {
   try {
     const hoje = new Date().toISOString().split("T")[0]
-    const query = await ModelAgendamento.find({ data: hoje }).populate("usuario").populate("corte").sort({ hora: 1 })
+
+    const query = await ModelAgendamento.find({ 
+      data: hoje
+    }).populate("usuario").populate("corte").sort({ hora: 1 })
+
     return response.status(200).json(query)
   } catch(erro){
     console.log(erro)
@@ -13,8 +17,8 @@ export async function cortesDoDia(request, response) {
 
 export async function meusCortes(request, response) {
   try {
-    const id = request.usuario
-    const query = await ModelAgendamento.find({ usuario: id }).populate("corte").sort({ data: -1 })
+    const id = request.usuario.id
+    const query = await ModelAgendamento.find({ usuario: id }).populate("corte").populate("usuario").sort({ data: -1, hora: 1 })
     return response.status(200).json(query)
   } catch(erro) {
     console.log(erro)

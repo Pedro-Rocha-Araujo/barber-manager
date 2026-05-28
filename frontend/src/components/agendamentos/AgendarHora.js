@@ -40,7 +40,7 @@
       try {
         await axios.post("http://localhost:4000/agendamentos",
         {
-          data: diaBack,
+          data: new Date(diaBack),
           hora: Number(horaBack),
           corte_id: corteSelecionado,
         }, {
@@ -123,7 +123,7 @@
                   value={hora} 
                   type="button"
                   disabled={ocupado}
-                  onClick={(e)=>setHoraBack(e.target.value)}
+                  onClick={(e)=>setHoraBack(Number(e.target.value))}
                 >{hora}:00 - Manhã</button>
               )
             })}
@@ -138,7 +138,7 @@
                   type="button"
                   disabled={ocupado}
                   onClick={(e)=>{
-                    setHoraBack(e.target.value)
+                    setHoraBack(Number(e.target.value))
                   }}
                 >{hora}:00 - Tarde</button>
               ) 

@@ -21,14 +21,18 @@ function PerfilUser() {
   useEffect(()=>{
     async function getCortes() {
       try {
-        const response = await axios.get("http://localhost:4000/meus-cortes")
+        const response = await axios.get("http://localhost:4000/meus-cortes", {
+          headers: {
+            Authorization: `Bearer ${tokenLs}`
+          }
+        })
         setCortes(response.data)
       } catch(erro) {
         console.log(erro)
       }
     }
     getCortes()
-  }, [])
+  }, [token])
 
   return (
     <>
@@ -49,12 +53,9 @@ function PerfilUser() {
             {cortes.map((agendamento)=>{
               return (
                 <div key={agendamento._id} className="agendamento">
-                  <h3>
-                    <i className="fa-solid fa-user"></i> {agendamento.usuario.nome}
-                  </h3>
                   <p><strong>Horário:</strong> {agendamento.hora}:00</p>
                   <p><strong>Corte:</strong> {agendamento.corte.nome}</p>
-                  <button>Excluir</button>
+                  <button>Desmarcar</button>
                 </div>
               )
             })}
@@ -62,10 +63,6 @@ function PerfilUser() {
           </div>
 
         </div>
-
-        <button 
-          id="blue" type="button" onClick={()=>navigate("/novo-corte")}
-        >Adicionar Corte</button>
 
         <button onClick={sairConta}>Sair</button>
 

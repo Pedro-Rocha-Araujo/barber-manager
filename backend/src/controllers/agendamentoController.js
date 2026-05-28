@@ -34,7 +34,7 @@ export async function agendarCorte(request, response) {
     }
 
     const consultaHorario = await ModelAgendamento.findOne({
-      data: data,
+      data: new Date(data),
       hora: hora
     })
 

@@ -8,7 +8,7 @@ section.perfil {
 
 section.perfil h2 {
   font-size: clamp(1.4rem, 4vw, 1.8rem);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
 div.perfil {
@@ -27,8 +27,8 @@ div.agendamentos-hoje {
 
 div.agendamentos {
   display: flex;
-  flex-wrap: nowrap;
-  
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
 div.agendamento {

@@ -20,14 +20,18 @@ function PerfilAdmin() {
   useEffect(()=>{
     async function getCortes() {
       try {
-        const response = await axios.get("http://localhost:4000/cortes-do-dia")
+        const response = await axios.get("http://localhost:4000/cortes-do-dia", {
+          headers: {
+            Authorization: `Bearer ${tokenLs}`
+          }
+        })
         setCortes(response.data)
       } catch(erro) {
         console.log(erro)
       }
     }
     getCortes()
-  }, [])
+  }, [tokenLs])
 
   return (
     <>
