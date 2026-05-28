@@ -8,8 +8,13 @@ import ListagemCortes from "./components/cortes/ListagemCortes"
 import Agendamento from "./components/agendamentos/Agendamento"
 import AgendarHora from "./components/agendamentos/AgendarHora"
 import PerfilAdmin from "./components/perfil/PerfilAdmin"
+import PerfilUser from "./components/perfil/PerfilUser"
+import { jwtDecode } from "jwt-decode"
 
 function RouterApp() {
+  const tokenLs = localStorage.getItem("token")
+  const token = jwtDecode(tokenLs)
+
   return (
     <Routes>
       <Route path="/" element={ <Login /> } />
@@ -19,7 +24,15 @@ function RouterApp() {
       <Route path="/listagem-cortes" element={<RotaPrivada><ListagemCortes /></RotaPrivada>} />
       <Route path="/agendamento" element={ <RotaPrivada> <Agendamento /> </RotaPrivada> } />
       <Route path="/agendamento/:dia" element={ <RotaPrivada> <AgendarHora /> </RotaPrivada> } />
-      <Route path="/perfil" element={ <RotaPrivada> <PerfilAdmin /> </RotaPrivada> } />
+      <Route path="/perfil" element={ 
+        <RotaPrivada> 
+          {token.role === "admin" ? (
+            <PerfilAdmin /> 
+          ) : (
+            <PerfilUser />
+          )}
+          
+        </RotaPrivada> } />
     </Routes>
   )
 }
