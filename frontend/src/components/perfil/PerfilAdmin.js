@@ -40,8 +40,10 @@ function PerfilAdmin() {
 
         <div className="perfil">
           <h2><i className="fa-solid fa-user"></i> {token.nome}</h2>
-          <label>Email: </label>
-          <input disabled value={token.email} />
+          <div>
+            <label>Email: </label>
+            <input disabled value={token.email} />
+          </div>
         </div>
 
         <div className="agendamentos-hoje">

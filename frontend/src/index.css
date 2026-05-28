@@ -19,7 +19,7 @@ header {
 }
 
 header h1 {
-  font-size: clamp(1.5rem, 8vw, 2.6rem);
+  font-size: clamp(1.5rem, 11vw, 2.6rem);
 }
 
 header ul {
@@ -36,4 +36,14 @@ header a {
 
 header a:hover {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 680px) {
+  header {
+    flex-direction: column;
+  }
+
+  header ul {
+    gap: 1.4rem;
+  }
 }
