@@ -39,3 +39,19 @@ export async function cancelarAgendamento(request, response) {
     return response.status(500).json({ Erro: "Erro ao cancelar o agendamento!" })
   }
 }
+
+export async function desmarcarAgendamento(request, response) {
+  try {
+    const { id_agendamento } = request.params
+    const query = await ModelAgendamento.findByIdAndUpdate(id_agendamento, {
+      status: "cancelado"
+    })
+    if(!query) {
+      return response.status(404).json({ Erro: "Erro ao cancelar o agendamento!" })
+    }
+    return response.status(200).json({ Mensagem: "Agendamento cancelado com sucesso!" })
+  } catch(erro) {
+    console.log(erro)
+    return response.status(500).json({ Erro: "Erro ao desmarcar agendamento!" })
+  }
+}

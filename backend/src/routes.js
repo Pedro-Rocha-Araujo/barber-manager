@@ -24,7 +24,8 @@ import {
 import {
   cortesDoDia,
   meusCortes,
-  cancelarAgendamento
+  cancelarAgendamento,
+  desmarcarAgendamento
 } from "./controllers/perfilController.js"
 // imports dos Middleares
 import {
@@ -53,5 +54,6 @@ router.post("/agendamentos", checarToken, agendarCorte)
 router.get("/cortes-do-dia", checarToken, checarAdmin, cortesDoDia)
 router.get("/meus-cortes", checarToken, meusCortes)
 router.delete("/cancelar-agendamento/:id_agendamento", checarToken, checarAdmin, cancelarAgendamento)
+router.put("/desmarcar-agendamento/:id_agendamento", checarToken, desmarcarAgendamento)
 
 export default router
