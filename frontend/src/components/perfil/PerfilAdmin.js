@@ -13,9 +13,14 @@ function PerfilAdmin() {
   const tokenLs = localStorage.getItem("token")
   const token = jwtDecode(tokenLs)
 
-  async function desmarcarCorte() {
+  async function desmarcarCorte(id) {
     try {
-
+      await axios.delete("http://localhost:4000/cancelar-agendamento/"+id, {
+        headers: {
+          Authorization: `Bearer ${tokenLs}`
+        }
+      })
+      toast.success("Agendamento cancelado!")
     } catch(erro) {
       console.log(erro)
       toast.error("Erro!")
@@ -41,7 +46,7 @@ function PerfilAdmin() {
       }
     }
     getCortes()
-  }, [tokenLs])
+  }, [tokenLs, cortes])
 
   return (
     <>
