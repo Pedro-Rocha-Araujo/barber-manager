@@ -25,3 +25,17 @@ export async function meusCortes(request, response) {
     return response.status(500).json({ Erro: "Erro ao buscar os cortes do dia!" })
   }
 }
+
+export async function cancelarAgendamento(request, response) {
+  try { 
+    const { id_agendamento } = request.params
+    const query = await ModelAgendamento.findByIdAndDelete( id_agendamento )
+    if(!query) {
+      return response.status(404).json({ Erro: "Erro ao deletar o agendamento!" })
+    }
+    return response.status(200).json({ Mensagem: "Agendamento cancelado com sucesso!" })
+  } catch(erro) {
+    console.log(erro)
+    return response.status(500).json({ Erro: "Erro ao cancelar o agendamento!" })
+  }
+}

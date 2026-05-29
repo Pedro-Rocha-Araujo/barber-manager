@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
+import { toast } from "react-toastify"
 import { jwtDecode } from "jwt-decode"
 import Header from "../elements/Header"
 import "./perfil.css"
@@ -11,6 +12,15 @@ function PerfilAdmin() {
   const navigate = useNavigate()
   const tokenLs = localStorage.getItem("token")
   const token = jwtDecode(tokenLs)
+
+  async function desmarcarCorte() {
+    try {
+
+    } catch(erro) {
+      console.log(erro)
+      toast.error("Erro!")
+    }
+  }
 
   function sairConta() {
     localStorage.removeItem("token")
@@ -63,7 +73,7 @@ function PerfilAdmin() {
                         </h3>
                         <p><strong>Horário:</strong> {agendamento.hora}:00</p>
                         <p><strong>Corte:</strong> {agendamento.corte.nome}</p>
-                        <button>Excluir</button>
+                        <button onClick={()=>desmarcarCorte(agendamento._id)}>Desmarcar</button>
                       </div>
                     )
                   }
