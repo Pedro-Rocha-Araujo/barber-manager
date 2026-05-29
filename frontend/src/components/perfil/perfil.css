@@ -72,6 +72,12 @@ button#blue:hover {
   background-color: #3f5cff;
 }
 
+button#cancelado {
+  background-color: #757575;
+  color: #fff;
+  cursor: auto;
+}
+
 div.agendamento button {
   width: 100%;
   font-size: clamp(0.85rem, 3vw, 1rem);

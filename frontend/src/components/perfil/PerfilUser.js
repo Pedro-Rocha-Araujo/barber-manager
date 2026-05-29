@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
+import { toast } from "react-toastify"
 import { jwtDecode } from "jwt-decode"
 import Header from "../elements/Header"
 import "./perfil.css"
@@ -12,6 +13,22 @@ function PerfilUser() {
 
   const tokenLs = localStorage.getItem("token")
   const token = jwtDecode(tokenLs)
+
+  async function desmarcarAgendamento(id) {
+    try {
+      await axios.put("http://localhost:4000/desmarcar-agendamento/"+id,
+        {},
+        {
+        headers: {
+          Authorization: `Bearer ${tokenLs}`
+        }
+      })
+      toast.success("Agendamento cancelado!")
+    } catch(erro) {
+      console.log(erro)
+      toast.error("Erro!")
+    }
+  }
 
   function sairConta() {
     localStorage.removeItem("token")
@@ -32,7 +49,7 @@ function PerfilUser() {
       }
     }
     getCortes()
-  }, [token])
+  }, [token, cortes])
 
   return (
     <>
@@ -55,7 +72,13 @@ function PerfilUser() {
                 <div key={agendamento._id} className="agendamento">
                   <p><strong>Horário:</strong> {agendamento.hora}:00</p>
                   <p><strong>Corte:</strong> {agendamento.corte.nome}</p>
-                  <button>Desmarcar</button>
+                  {agendamento.status==="agendado" ? (
+                    <button 
+                      onClick={()=>desmarcarAgendamento(agendamento._id)}
+                    >Desmarcar</button>
+                  ): (
+                    <button id="cancelado" disabled >Cancelado</button>
+                  )}
                 </div>
               )
             })}
