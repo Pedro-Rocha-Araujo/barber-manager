@@ -1,7 +1,28 @@
 import ModelAgendamento from "../models/Agendamento.js"
 
+async function finalizarAgendamentosAntigos(request, response) {
+  try {
+    const hoje = new Date()
+    hoje.setHours(0, 0, 0, 0)
+    await ModelAgendamento.updateMany(
+      {
+        data: { $lt: hoje },
+        status:  "agendado" 
+      },
+      {
+        status: "finalizado"
+      }
+    )
+  } catch(erro) {
+    console.log(erro)
+    return response.status(500).json({ Erro: "Erro ao concluir agendamento!" })
+  }
+}
+
 export async function cortesDoDia(request, response) {
   try {
+    await finalizarAgendamentosAntigos()
+
     const hoje = new Date().toISOString().split("T")[0]
 
     const query = await ModelAgendamento.find({ 
