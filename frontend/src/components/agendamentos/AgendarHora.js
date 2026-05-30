@@ -95,6 +95,9 @@
       }
     }, [diaBack, token])
 
+    const hojeString = new Date().toISOString().split("T")[0]
+    const checkHoje = diaBack === hojeString
+    const horaAtual = new Date().getHours()
 
     return (
       <>
@@ -116,13 +119,14 @@
           <form>
             <h3>Manhã</h3>
             {manha.map((hora)=>{
+              const horaAtual = new Date().getHours()
               const ocupado = horariosOcupados.includes(hora)
               return (
                 <button 
                   key={hora} 
                   value={hora} 
                   type="button"
-                  disabled={ocupado}
+                  disabled={ocupado || (checkHoje && horaAtual >= hora)}
                   onClick={(e)=>setHoraBack(Number(e.target.value))}
                 >{hora}:00 - Manhã</button>
               )
@@ -130,13 +134,14 @@
             <hr />
             <h3>Tarde</h3>
             {tarde.map((hora)=>{
+              const horaAtual = new Date().getHours()
               const ocupado = horariosOcupados.includes(hora)
               return (
                 <button 
                   key={hora} 
                   value={hora} 
                   type="button"
-                  disabled={ocupado}
+                  disabled={ocupado || (checkHoje && horaAtual >= hora)}
                   onClick={(e)=>{
                     setHoraBack(Number(e.target.value))
                   }}
