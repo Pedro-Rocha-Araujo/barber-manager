@@ -20,6 +20,10 @@ function PerfilAdmin() {
           Authorization: `Bearer ${tokenLs}`
         }
       })
+      let atualizarCortes = cortes.filter((corte)=>{
+        return corte._id !== id
+      })
+      setCortes(atualizarCortes)
       toast.success("Agendamento cancelado!")
     } catch(erro) {
       console.log(erro)
@@ -78,7 +82,7 @@ function PerfilAdmin() {
                         </h3>
                         <p><strong>Horário:</strong> {agendamento.hora}:00</p>
                         <p><strong>Corte:</strong> {agendamento.corte.nome}</p>
-                        <button onClick={()=>desmarcarCorte(agendamento._id)}>Desmarcar</button>
+                        <button onClick={()=>desmarcarCorte(agendamento._id)}>Excluir</button>
                       </div>
                     )
                   }
@@ -97,7 +101,7 @@ function PerfilAdmin() {
                         </h3>
                         <p><strong>Horário:</strong> {agendamento.hora}:00</p>
                         <p><strong>Corte:</strong> {agendamento.corte.nome}</p>
-                        <button>Excluir</button>
+                        <button onClick={()=>desmarcarCorte(agendamento._id)}>Excluir</button>
                       </div>
                     )
                   }
