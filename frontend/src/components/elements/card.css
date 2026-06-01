@@ -1,8 +1,8 @@
 div.background {
-  background-color: rgba(0, 0, 0, 0.685);
+  background-color: rgba(0, 0, 0, 0.72);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 100%;
   min-height: 100dvh;
   position: fixed;
@@ -15,11 +15,11 @@ div.card {
   background-color: #fff;
   width: 98%;
   max-width: 680px;
-  border-radius: 1rem;
-  padding: 1.2rem 0.8rem 1rem 0.8rem;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  border-radius: 0.8rem;
+  padding: 1.2rem 0.8rem 0.8rem 0.8rem;
 }
 
 div.card h1 {
@@ -42,8 +42,8 @@ div.dois {
 }
 
 div.card button {
-  font-size: clamp(0.9rem, 3vw, 1rem);
   color: #fff;
+  font-size: clamp(0.9rem, 3vw, 1rem);
   cursor: pointer;
   padding: 0.5rem 0;
   border: none;
@@ -59,9 +59,9 @@ button.red {
 }
 
 div.card h2.preto, div.card h3.preto {
+  color: #000;
   font-size: clamp(1.4rem, 8vw, 2rem);
   text-align: left;
-  color: #000;
   margin: 0;
 }
 
