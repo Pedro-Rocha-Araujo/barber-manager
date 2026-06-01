@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
+import { jwtDecode } from "jwt-decode"
 import { toast } from "react-toastify"
 import "./card.css"
 
 function CardCorte({ id, setCard }) {
   const navigate = useNavigate()
   const token = localStorage.getItem("token")
+  const tokenDecodificado = jwtDecode(token)
   const [itemCard, setItemCard] = useState()
 
   useEffect(()=>{
@@ -57,7 +59,9 @@ function CardCorte({ id, setCard }) {
         </div>
           <p><strong>Preço:</strong> R${itemCard?.preco}</p>
           <p><strong>Descrição:</strong> { itemCard?.descricao }</p>
-          <button onClick={()=>editarCorte(itemCard._id)} className="blue">Editar</button>
+          { tokenDecodificado.role === "admin" && (
+            <button onClick={()=>editarCorte(itemCard._id)} className="blue">Editar</button>
+          ) }
           <button onClick={fecharCard} className="red">Fechar</button>
       </div>
     </div>
