@@ -1,4 +1,4 @@
-# Projeto 💈BarberManager💈
+# 💈BarberManager💈
 
 ## Sobre o projeto ❓
 O presente projeto trata-se de um gerenciador de horários e cortes para uma barbearia, contando com sistema de login e cadastro para funcionários e clientes.
