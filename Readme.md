@@ -20,3 +20,7 @@ A interface do projeto foi desenvolvida seguindo a abordagem Mobile-first, garan
 * React.js para o desenvolvimento do frontend
 * Node.js (Express) para a escrita do backend
 * MongoDb (Mongoose) usado como banco de dados
+
+## Links 🔗
+* Post no Linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7467210376061960192/
+* Vídeo de demonstração: https://youtu.be/jNjce0JHDAA
