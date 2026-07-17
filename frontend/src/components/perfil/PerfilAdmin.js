@@ -11,6 +11,9 @@ function PerfilAdmin() {
 
   const navigate = useNavigate()
   const tokenLs = localStorage.getItem("token")
+  if(!tokenLs) {
+    navigate("/")
+  }
   const token = jwtDecode(tokenLs)
 
   async function desmarcarCorte(id) {

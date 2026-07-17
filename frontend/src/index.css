@@ -6,7 +6,8 @@
 }
 
 body {
-  background-color: #0a0c0d;
+  background: linear-gradient(4deg,rgba(0, 0, 0, 1) 0%, rgb(32, 30, 31) 100%);
+  min-height: 100dvh;
 }
 
 header {
