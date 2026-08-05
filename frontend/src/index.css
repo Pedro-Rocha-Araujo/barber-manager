@@ -6,13 +6,19 @@
 }
 
 body {
-  background: linear-gradient(4deg,rgba(0, 0, 0, 1) 0%, rgb(32, 30, 31) 100%);
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('../public/background.jpg');
+  background-size: cover;
+  background-position: center;
   min-height: 100dvh;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 header {
-  background-color: #fff;
-  color: #000;
+  background-color: #111;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,7 +37,7 @@ header ul {
 }
 
 header a {
-  color: #000;
+  color: #fff;
   text-decoration: none;
 }
 
