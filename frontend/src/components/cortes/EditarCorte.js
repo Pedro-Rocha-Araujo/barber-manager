@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import axios from "axios"
 import "./cortes.css"
 import Header from "../elements/Header"
 
 function EditarCorte() {
   const { id } = useParams()
+  const navigate = useNavigate()
 
   const [nome, setNome] = useState("")
   const [descricao, setDescricao] = useState("")
@@ -48,8 +49,7 @@ function EditarCorte() {
           }
         },
       )
-      toast.success("Corte Editado!")
-
+      navigate("/listagem-cortes")
     } catch (erro) {
       console.log(erro)
       toast.error("Erro!")

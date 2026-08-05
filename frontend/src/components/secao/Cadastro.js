@@ -38,7 +38,7 @@ function Cadastro() {
       <div className="secao">
 
         <div className="cabecalho-secao">
-          <h1>Cadastre-se</h1>
+          <h1>Cadastro</h1>
         </div>
 
         <form onSubmit={cadastrarUsuario} className="main-secao">
