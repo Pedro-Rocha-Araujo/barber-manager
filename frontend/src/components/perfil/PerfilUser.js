@@ -49,7 +49,7 @@ function PerfilUser() {
       }
     }
     getCortes()
-  }, [token, cortes])
+  }, [])
 
   return (
     <>
@@ -63,15 +63,17 @@ function PerfilUser() {
         </div>
 
         <div className="agendamentos-hoje">
-          <h2><i className="fa-solid fa-calendar"></i> Meus Cortes</h2>
+          <h2><i className="fa-solid fa-calendar"></i> Histórico de cortes</h2>
 
           <div className="agendamentos">
 
             {cortes.map((agendamento)=>{
               return (
                 <div key={agendamento._id} className="agendamento">
+                  <p><strong>Data:</strong> {agendamento.data.slice(0, 10)}</p>
                   <p><strong>Horário:</strong> {agendamento.hora}:00</p>
                   <p><strong>Corte:</strong> {agendamento.corte.nome}</p>
+                  <p><strong>Status:</strong> {agendamento.status}</p>
                   {agendamento.status==="agendado" ? (
                     <button 
                       onClick={()=>desmarcarAgendamento(agendamento._id)}
