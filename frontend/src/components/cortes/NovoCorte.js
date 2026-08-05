@@ -46,7 +46,7 @@ function NovoCorte() {
     <>
       <Header />
       <section className="novo-corte">
-        <h2><i className="fa-solid fa-scissors"></i> Adicionar Corte</h2>
+        <h2><i className="fa-solid fa-circle-plus"></i> Adicionar Corte</h2>
         <form onSubmit={cadastrarCorte} className="novo-corte">
           <input type="text" required name="nome" placeholder="Digite o nome do corte" 
             ref={nomeRef}
