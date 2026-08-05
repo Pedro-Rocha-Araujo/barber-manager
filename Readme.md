@@ -3,7 +3,7 @@
 ## Sobre o projeto ❓
 O presente projeto trata-se de um gerenciador de horários e cortes para uma barbearia, contando com sistema de login e cadastro para funcionários e clientes.
 
-<img width="1920" height="911" alt="projeto-barbearia" src="https://github.com/user-attachments/assets/56e1bf5f-0458-4a3b-91e1-c3fcf39224f2" />
+<img width="1920" height="911" alt="projeto-barber" src="https://github.com/user-attachments/assets/84417653-a367-4647-8de3-6326114f99d9" />
 
 ## Características do projeto 🧩
 * Controle de seção e autenticação usando Token JWT
