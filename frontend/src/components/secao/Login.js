@@ -47,7 +47,7 @@ function Login() {
         </form>
 
         <div className="footer-secao">
-          <p>Não possui um cadstro? <Link to="/cadastro">Cadastrar-se</Link></p>
+          <p>Não possui um cadastro? <Link to="/cadastro">Cadastrar-se</Link></p>
         </div>
 
       </div>

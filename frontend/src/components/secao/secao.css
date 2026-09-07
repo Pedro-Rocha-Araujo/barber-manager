@@ -1,26 +1,26 @@
 section.secao-background {
+  width: 100%;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  min-height: 100dvh;
   padding: 1rem 0;
 }
 
 div.secao {
   width: 98%;
-  max-width: 520px;
+  max-width: 580px;
 }
 
 div.cabecalho-secao {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #fff;
   border-bottom: none;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
 }
 
 div.cabecalho-secao h1 {
-  font-size: clamp(1rem, 12vw, 2.2rem);
+  font-size: clamp(1rem, 12vw, 2.5rem);
   text-align: center;
 }
 
@@ -28,33 +28,32 @@ form.main-secao {
   background-color: transparent;
   display: flex;
   flex-direction: column;
-
-  border: 1px solid #ffffff;
+  
 }
 
 form.main-secao input {
+  font-size: clamp(0.75rem, 3vw, 1rem);
   border: none;
-  border-bottom: 1px solid #ffffff;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
   color: #fff;
-  height: 2.8rem;
+  height: 2.5rem;
   background-color: rgba(0, 0, 0, 0.466);
-  border-left: none;
-  border-right: none;
   outline: none;
   padding: 0 0.8rem;
 }
 
 form.main-secao input::placeholder {
-  color: #fff;
-  font-size: clamp(0.75rem, 3vw, 1rem);
+  color: #ffffffe5;
 }
 
 form.main-secao button {
-  height: 3rem;
-  background-color: #ffffff;
-  font-size: clamp(0.8rem, 6vw, 1.04rem);
+  font-size: clamp(0.8rem, 6vw, 1.1rem);
+  height: 2.8rem;
+  background-color: #daac37;
+  border: 1px solid #daac37;
   font-weight: bold;
-  border: none;
   cursor: pointer;
 }
 
@@ -63,13 +62,13 @@ div.footer-secao {
 }
 
 div.footer-secao p {
+  font-size: clamp(0.85rem, 4vw, 1.1rem);
   color: #ffffff;
-  font-size: clamp(0.85rem, 4vw, 1rem);
   text-align: center;
 }
 
 div.footer-secao a {
-  color: #ffffff;
+  color: #e2bc5c;
   text-decoration: none;
 }
 
