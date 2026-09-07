@@ -39,16 +39,9 @@ form.novo-corte textarea {
 }
 
 form.novo-corte button {
-  color: #fff;
-  background-color: transparent;
-  border: 1px solid #fff;
+  background-color: #e2bc5c;
   border-radius: 0.4rem;
   transition: all 0.4s;
-}
-
-form.novo-corte button:hover {
-  color: #000;
-  background-color: #fff;
 }
 
 /* --------------------------------------------------------- */
