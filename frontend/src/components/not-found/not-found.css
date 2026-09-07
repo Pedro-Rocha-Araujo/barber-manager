@@ -1,0 +1,36 @@
+section.not-found {
+  width: 98%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  margin: auto;
+}
+
+section.not-found h1 {
+  font-size: clamp(1.5rem, 12vw, 2.5rem);
+  color: #fff;
+}
+
+section.not-found p {
+  font-size: clamp(0.9rem, 4vw, 1.1rem);
+  color: #fff;
+}
+
+section.not-found button {
+  font-size: clamp(0.9rem, 4vw, 1rem);
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 2rem;
+  margin-top: 0.4rem;
+  transition: all 0.2s;
+}
+
+section.not-found button:hover {
+  color: #000;
+  background-color: #fff;
+}

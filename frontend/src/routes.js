@@ -1,6 +1,8 @@
 import {Routes, Route } from "react-router-dom"
 import { jwtDecode } from "jwt-decode"
 
+import NotFound from "./components/not-found/NotFound"
+
 import RotaPrivada from "./RotaPrivada"
 import RotaAdmin from "./RotaAdmin"
 
@@ -24,6 +26,8 @@ function RouterApp() {
 
   return (
     <Routes>
+
+      <Route path="*" element={ <NotFound /> } />
 
       <Route path="/" element={ <Login /> } />
       <Route path="/cadastro" element={ <Cadastro /> } />
